@@ -1,5 +1,74 @@
+$jumbotron-font-size: 48px;
 
-h1 {
+h1, h2 {
   font-weight: 100;
   font-family: $font-family-base;
+}
+
+h1 {
+  font-size: $jumbotron-font-size;
+  margin-bottom: 2em;
+  margin-top: 2em;
+
+  img {
+    width: 1em;
+    margin-right: .2em;
+    margin-top: -10px;
+    border-radius: 5px;
+  }
+}
+
+.typed, .name {
+  font-weight: bolder;
+}
+#call-to-action {
+  margin-top: 6em;
+  margin-left: 6em;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.what {
+  font-size: 2em;
+
+  .item {
+    clear: both;
+    margin-bottom: 3em;
+    .badge {
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      margin-right: 1em;
+      font-size: 1em;
+      line-height: 1.9;
+    }
+
+    .sub {
+      margin-top: -.5em;
+      font-size: .75em;
+      opacity: .5;
+    }
+  }
+}
+
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
 }

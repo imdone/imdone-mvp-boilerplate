@@ -2,6 +2,7 @@ var data        = require('gulp-data'),
     jade        = require('gulp-jade'),
     gulp        = require('gulp'),
     runSequence = require('run-sequence'),
+    serve       = require('gulp-serve'),
     path        = require('path'),
     sass        = require('gulp-sass'),
     inject      = require('gulp-inject'),
@@ -11,13 +12,13 @@ var data        = require('gulp-data'),
     source      = require('vinyl-source-stream'),
     buffer      = require('vinyl-buffer'),
     sourcemaps  = require('gulp-sourcemaps'),
-    ghPages     = require('gulp-gh-pages');
+    ghPages     = require('gulp-gh-pages'),
+    reload      = require('require-reload')(require);
 
 var src = 'src',
     dist = 'dist',
     js = path.join(src, 'js'),
     templates = path.join(src,'templates'),
-    theme = 'yeti',
     NODE_ENV = "development";
 
 gulp.task('clean', function () {
@@ -25,7 +26,7 @@ gulp.task('clean', function () {
 		.pipe(clean());
 });
 
-gulp.task('html', ['resources', 'clean'], function() {
+gulp.task('html', ['resources'], function() {
   return gulp.src(path.join(templates,'*.jade'))
     .pipe(data(function(file) {
       return require(file.base + path.basename(file.path, '.jade') + '.json');
@@ -35,7 +36,8 @@ gulp.task('html', ['resources', 'clean'], function() {
     .pipe(gulp.dest(dist));
 });
 
-gulp.task('styles', ['clean'], function(){
+gulp.task('styles', function(){
+  var theme = reload('./.config').all.theme;
   var opts = {
     outputStyle: 'nested',
     precison: 3,
@@ -49,13 +51,13 @@ gulp.task('styles', ['clean'], function(){
     .pipe(gulp.dest(path.join(dist, 'css')));
 });
 
-gulp.task('fonts', ['clean'], function(){
+gulp.task('fonts', function(){
   return gulp.src(['./node_modules/bootstrap-sass/assets/fonts/**/*',
                    './node_modules/font-awesome/fonts/**/*'])
     .pipe(gulp.dest(path.join(dist,'fonts')));
 });
 
-gulp.task('js', ['clean'], function(){
+gulp.task('js', function(){
   return  browserify({
       entries: path.join(js, 'main.js'), // source js file
       debug: true
@@ -73,16 +75,30 @@ gulp.task('js', ['clean'], function(){
     .pipe(gulp.dest(path.join(dist, 'js')));
 });
 
+gulp.task('images', function() {
+  return gulp.src([src + '/images/**/*']).pipe(gulp.dest(path.join(dist, 'images')));
+});
+
+gulp.task('watch', function() {
+  gulp.watch([src + '/**/*', '.config.js'], ['html']);
+});
+
+gulp.task('serve', serve(dist));
+
+// DOING:0 Add a serve task
+
 gulp.task('deploy', function() {
   return gulp.src(dist + '/**/*')
     .pipe(ghPages());
 });
 
-gulp.task('resources', ['styles', 'fonts', 'js']);
+gulp.task('resources', ['styles', 'fonts', 'js', 'images']);
 
-gulp.task('default', ['html']);
+gulp.task('default', function(cb) {
+  runSequence('clean', ['html', 'watch'], 'serve', cb)
+});
 
 gulp.task('dist', function(cb) {
   NODE_ENV = 'production';
-  runSequence('default', cb);
+  runSequence('clean', 'default', cb);
 });

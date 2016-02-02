@@ -7,17 +7,45 @@ html(lang="en")
     meta(name="description", content="#{title}")
     meta(name="author", content="Farwell Project Advisors")
     title #{title}
-    // link(rel="shortcut icon", href="/favicon.ico")
+    link(rel="shortcut icon", href="#favIcon")
     // inject:css
     // endinject
   body
-    .jumbotron
-      #main.container
-        h1 #{mainHeading}
-        p
-          a.btn.btn-primary.btn-large(href="#", role="button", data-toggle="tooltip", data-placement="bottom", title="Tooltip on bottom")
-            span.glyphicon.glyphicon-asterisk
-            i.fa.fa-heart
-            =buttonText
+    #main.container
+      h1 
+        img(src="#{logoImage}")
+        span.name imdone 
+        span is a task-board that lives in your 
+        span.typed work
+      .what.pull-left
+        .clearfix
+        .item
+          .badge.pull-left 1
+          .statement.pull-left
+            span Add tasks to your work.
+            .sub For example, 
+              code &#35;TODO: Get this done!
+        .clearfix
+        .item
+          .badge.pull-left 2
+          .statement.pull-left
+            span Save the file.
+            .sub imdone finds them and puts them in lists.
+        .clearfix
+        .item
+          .badge.pull-left 3
+          .statement.pull-left
+            span Organize them.
+            .sub Using imdone's drag and drop task-board.
+        .clearfix
+        .item
+          .badge.pull-left 4
+          .statement.pull-left
+            span Share them!
+            .sub With google calendar, github, slack, trello and more.
+
+      p.clearfix
+        a.btn.btn-success.btn-large(href="#", role="button", id="call-to-action", title="Plans and Pricing")
+          =buttonText
     // inject:js
     // endinject

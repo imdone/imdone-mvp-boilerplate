@@ -24,6 +24,10 @@ module.exports = {
      projectId: "<keen-project-id>",
      writeKey: "<keen-write-key"
    }
+ },
+
+ all: {
+   theme: 'superhero' // A bootswatch theme name
  }
 };
 ```
