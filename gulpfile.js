@@ -1,21 +1,24 @@
-var data       = require('gulp-data'),
-    jade       = require('gulp-jade'),
-    gulp       = require('gulp'),
-    path       = require('path'),
-    sass       = require('gulp-sass'),
-    inject     = require('gulp-inject'),
-    clean      = require('gulp-clean'),
-    browserify = require('browserify'),
-    source     = require('vinyl-source-stream'),
-    buffer     = require('vinyl-buffer'),
-    sourcemaps = require('gulp-sourcemaps'),
-    ghPages    = require('gulp-gh-pages');
+var data        = require('gulp-data'),
+    jade        = require('gulp-jade'),
+    gulp        = require('gulp'),
+    runSequence = require('run-sequence'),
+    path        = require('path'),
+    sass        = require('gulp-sass'),
+    inject      = require('gulp-inject'),
+    clean       = require('gulp-clean'),
+    browserify  = require('browserify'),
+    envify      = require('envify/custom'),
+    source      = require('vinyl-source-stream'),
+    buffer      = require('vinyl-buffer'),
+    sourcemaps  = require('gulp-sourcemaps'),
+    ghPages     = require('gulp-gh-pages');
 
 var src = 'src',
     dist = 'dist',
     js = path.join(src, 'js'),
     templates = path.join(src,'templates'),
-    theme = 'darkly';
+    theme = 'yeti',
+    NODE_ENV = "development";
 
 gulp.task('clean', function () {
 	return gulp.src(dist, {read: false})
@@ -57,6 +60,7 @@ gulp.task('js', ['clean'], function(){
       entries: path.join(js, 'main.js'), // source js file
       debug: true
     })
+    .transform(envify({ _: 'purge', NODE_ENV: NODE_ENV}), {global: true})
     .bundle()
     .pipe(source('main.js')) //Name the ouput js file
     .pipe(buffer())
@@ -77,3 +81,8 @@ gulp.task('deploy', function() {
 gulp.task('resources', ['styles', 'fonts', 'js']);
 
 gulp.task('default', ['html']);
+
+gulp.task('dist', function(cb) {
+  NODE_ENV = 'production';
+  runSequence('default', cb);
+});

@@ -8,6 +8,8 @@
     "bootstrap-sass": "^3.3.6",
     "bootswatch": "^3.3.6",
     "browserify": "^13.0.0",
+    "common-web": "git://github.com/keen/common-web",
+    "envify": "^3.4.0",
     "font-awesome": "^4.5.0",
     "gulp": "^3.9.0",
     "gulp-clean": "^0.3.1",
@@ -19,6 +21,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "jquery": "^2.2.0",
     "lodash": "^4.1.0",
+    "run-sequence": "^1.1.5",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   },
