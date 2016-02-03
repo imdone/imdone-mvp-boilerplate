@@ -1,14 +1,41 @@
 $jumbotron-font-size: 48px;
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+}
+
+footer {
+  position: absolute;
+  bottom: 5px;
+  padding: 1rem;
+}
 
 h1, h2 {
   font-weight: 100;
   font-family: $font-family-base;
+
+  &.not-ready {
+    font-weight: 400;
+  }
 }
 
 h1 {
   font-size: $jumbotron-font-size;
-  margin-bottom: 2em;
-  margin-top: 2em;
+  margin-bottom: 1.5em;
+  margin-top: 1.5em;
 
   img {
     width: 1em;
@@ -74,8 +101,37 @@ code {
     -moz-animation: blink 0.7s infinite;
     animation: blink 0.7s infinite;
 }
-div.plan-cols {
+div.plan-cols, div.email-section {
     margin-left: 12.5%;
+}
+
+.email-section {
+
+  p {
+    line-height: 28px;
+    color: #999;
+    font-size: 20px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  input[type=email] {
+    font-size: 1.5em;
+    border-radius: 4px;
+    border: 1px solid #aaa;
+    padding: 10px 15px;
+    width: 300px;
+    height: 40px;
+    display: inline-block;
+    vertical-align: middle;
+    color: $gray-dark;
+    line-height: initial;
+    margin-right: .5em
+  }
+
+  .email-alert {
+    margin-top: 5px;
+  }
 }
 
 div.plan-panel {

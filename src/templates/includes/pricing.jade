@@ -1,7 +1,7 @@
 .row.plan-cols
   .col-md-3
     .plan-panel
-      a(href="free")
+      a#free-plan-link(href="free")
         h2 Free
         h3.text-center
           span.unit $
@@ -13,7 +13,7 @@
         li
           span.main-point 
             span.glyphicon.glyphicon-ok
-          span.description Organize your tasks in your work
+          span.description Organize tasks in your work
         li
           span.main-point 1
           span.description 1 integration
@@ -25,10 +25,10 @@
             span.glyphicon.glyphicon-ok
           span.description Free atom editor package
         li.text-center
-          a.btn.btn-success.btn-large(href="free", role="button") Sign up now
+          a#free-plan-btn.btn.btn-success.btn-large(href="free", role="button") Sign up now
   .col-md-3
     .plan-panel.highlighted
-      a(href="standard")
+      a#standard-plan-link(href="standard")
         h2 Standard
         h3.text-center
           span.unit $
@@ -40,7 +40,7 @@
         li
           span.main-point 
             span.glyphicon.glyphicon-ok
-          span.description Organize your tasks in your work
+          span.description Organize tasks in your work
         li
           span.main-point 2
           span.description 2 integrations
@@ -52,10 +52,10 @@
             span.glyphicon.glyphicon-ok
           span.description Free atom editor package
         li.text-center
-          a.btn.btn-success.btn-large(href="standard", role="button") Sign up now
+          a#standard-plan-btn.btn.btn-success.btn-large(href="standard", role="button") Sign up now
   .col-md-3
     .plan-panel
-      a(href="max")
+      a#max-plan-link(href="max")
         h2 Max
         h3.text-center
           span.unit $
@@ -67,7 +67,7 @@
         li
           span.main-point 
             span.glyphicon.glyphicon-ok
-          span.description Organize your tasks in your work
+          span.description Organize tasks in your work
         li
           span.main-point &infin;
           span.description Unlimited integrations
@@ -83,4 +83,4 @@
             span.glyphicon.glyphicon-ok
           span.description Direct line to founder
         li.text-center
-          a.btn.btn-success.btn-large(href="max", role="button") Sign up now
+          a#max-plan-btn.btn.btn-success.btn-large(href="max", role="button") Sign up now

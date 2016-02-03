@@ -4,7 +4,8 @@ var config = require('../config'),
 require('typed.js');
 
 $(function () {
-  CommonWeb.Keen.Client = new Keen(config.keen);
+  var keenClient = new Keen(config.keen);
+  CommonWeb.Keen.Client = keenClient;
   CommonWeb.addGlobalProperties(CommonWeb.Keen.globalProperties);
   CommonWeb.Callback = CommonWeb.Keen.Callback;
   CommonWeb.trackSession();
@@ -21,5 +22,34 @@ $(function () {
     typeSpeed: 100,
     backDelay: 2000,
     backSpeed: 50
+  });
+
+  var hideAlert = function() {
+    $('.email-alert').addClass('hide');
+  };
+
+  $('#email')
+  .on('keyup', hideAlert)
+  .on('click', hideAlert);
+
+  $('#reminder').click(function(evt) {
+    hideAlert();
+    var email = $('#email').val();
+    if (email) {
+      console.log('email:', email);
+    }
+
+    var cb = function(err, resp) {
+      window.location = "https://atom.io/packages/imdone-atom";
+    };
+
+    if (email !== "") {
+      if (/^\S+@\S+\.\S+$/.test(email)) {
+        keenClient.addEvent("email", {email:email});
+        cb();
+      } else $('.email-alert').removeClass('hide');
+    } else cb();
+
+    return false;
   });
 });

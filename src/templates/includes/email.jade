@@ -1,0 +1,16 @@
+doctype html
+html(lang="en")
+  include head.jade
+  body
+    .main.container
+      include title.jade
+      .row.email-section
+        .col-md-9
+          h2.not-ready Hello! You caught us before we're ready.
+          p We're working hard to put the finishing touches on imdone. Things are going well and it should be ready to help you get organized very soon. If you'd like us to send you a reminder when we're ready, just put your email in below:
+          .email-form.input-group
+            input#email(type="email", placeholder="email")
+            button.btn.btn-success#email-reminder(type="button") Remind me
+          .row.email-alert.hide
+            .alert.alert-warning Email is not valid. Please enter a valid email to recieve a reminder email
+    include footer.jade
