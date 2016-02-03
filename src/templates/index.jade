@@ -4,36 +4,6 @@ html(lang="en")
   body
     #main.container
       include ./includes/title.jade
-      .what.pull-left
-        .clearfix
-        .item
-          .badge.pull-left 1
-          .statement.pull-left
-            span Add tasks to your work.
-            .sub For example, 
-              code &#35;TODO: Get this done!
-        .clearfix
-        .item
-          .badge.pull-left 2
-          .statement.pull-left
-            span Save the file.
-            .sub imdone finds them and puts them in lists.
-        .clearfix
-        .item
-          .badge.pull-left 3
-          .statement.pull-left
-            span Organize them.
-            .sub Using imdone's drag and drop task-board.
-        .clearfix
-        .item
-          .badge.pull-left 4
-          .statement.pull-left
-            span Share them!
-            .sub With google calendar, github, slack, trello and more.
-          img#arrow(src="images/arrow.png")
-
-      p.clearfix
-        a.btn.btn-success.btn-large(href="pricing", role="button", id="call-to-action", title="Plans and Pricing")
-          =buttonText
+      include ./includes/index.jade
     // inject:js
     // endinject

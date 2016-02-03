@@ -22,4 +22,4 @@ $(function () {
     backDelay: 2000,
     backSpeed: 50
   });
-})
+});

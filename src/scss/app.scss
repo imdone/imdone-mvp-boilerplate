@@ -18,6 +18,11 @@ h1 {
   }
 }
 
+code {
+  color: inherit;
+  font-weight: 300;
+}
+
 .typed, .name {
   font-weight: bolder;
 }
@@ -69,6 +74,138 @@ h1 {
     -moz-animation: blink 0.7s infinite;
     animation: blink 0.7s infinite;
 }
+div.plan-cols {
+    margin-left: 12.5%;
+}
+
+div.plan-panel {
+  background-color: #373737;
+  -webkit-transition: all 0.25s linear;
+  -moz-transition: all 0.25s linear;
+  padding: 0px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+
+  &.highlighted {
+    background-color: #272727;
+  }
+
+  a {
+    display: block;
+    text-decoration: none;
+    padding: 15px;
+    outline: none;
+    color: #aaa;
+  }
+
+  &:hover {
+    -webkit-transform: scale(1.15);
+    -moz-transform: scale(1.15);
+    -webkit-box-shadow:0 0 5px #000;
+  }
+
+  h2 {
+    border-bottom: 1px solid #4b4b4b;
+    font-weight: 400;
+    margin-top: 0;
+  }
+
+  h3 {
+    color: #ddd;
+    font-weight: normal;
+    font-family: 'Lucida Grande',sans-serif;
+    font-size: 100px;
+    line-height: 100px;
+    margin: 10px 0;
+    position: relative;
+    height: 100px;
+    padding-right: 50px;
+
+    &.single-digit {
+      padding-left: 35px;
+      font-family: Arial;
+    }
+
+    span.unit {
+      font-size: 30px;
+      line-height: 30px;
+      height: 30px;
+      position: absolute;
+      top: 10px;
+    }
+
+    span.price {
+      margin-left: 15px;
+      letter-spacing: -8px;
+    }
+
+    span.period {
+      font-size: 25px;
+      line-height: 25px;
+      height: 25px;
+      position: absolute;
+      bottom: 10px;
+    }
+  }
+
+  p.hint {
+    border-top: 1px solid #4b4b4b;
+    font-size: 11px !important;
+    margin: 0;
+    line-height: 20px !important;
+    margin-bottom: -5px;
+    padding-top: 5px;
+    color: #999;
+  }
+}
+
+div.plan-details {
+  margin-top: 10px;
+  background-color: #dddddd;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  padding: 15px;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-top: -5px;
+
+    li {
+      border-bottom: 1px solid #ccc;
+      line-height: 30px;
+      font-size: 12px;
+      clear: both;
+      padding-top: 5px;
+      position: relative;
+      .main-point {
+        background-color: #373737;
+        color: #ccc;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        display: block;
+        float: left;
+        height: 25px;
+        line-height: 15px;
+        padding: 5px;
+        text-align: center;
+        width: 30px;
+        position: absolute;
+      }
+
+      .description {
+        bottom: 3px;
+        margin-left: 40px;
+        position: relative;
+        color: #373737;
+        font-size: 11px;
+        display: block;
+      }
+    }
+  }
+}
+
 @keyframes blink{
     0% { opacity:1; }
     50% { opacity:0; }

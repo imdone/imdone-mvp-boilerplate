@@ -1,7 +1,7 @@
 {
   "name": "imdone-mvp-boilerplate",
   "version": "1.0.0",
-  "description": "MVP boilerplate using gulp, sass, bootstrap, bootswatch, font-awesome and browserify",
+  "description": "MVP boilerplate using gulp, sass, bootstrap, bootswatch, font-awesome, jade and browserify",
   "main": "gulpfile.js",
   "dependencies": {
     "node-static": "^0.7.7"
