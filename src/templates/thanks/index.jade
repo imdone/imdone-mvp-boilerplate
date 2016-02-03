@@ -1,0 +1,13 @@
+doctype html
+html(lang="en")
+  include ../includes/head.jade
+  body
+    .main.container
+      include ../includes/title.jade
+      .row.thanks-section
+        .col-md-9
+          h2.not-ready Thanks!  We'll let you know when we're ready.
+    p
+      a#imdone-atom-link(href="https://atom.io/packages/imdone-atom", data-toggle="tooltip", data-placement="top", title="Download the imdone-atom package!")
+        img.hero(src="https://cloud.githubusercontent.com/assets/233505/11121461/9899fb14-891b-11e5-8aba-a4646f8b1428.gif")
+    include ../includes/footer.jade

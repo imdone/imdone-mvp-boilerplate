@@ -101,11 +101,18 @@ code {
     -moz-animation: blink 0.7s infinite;
     animation: blink 0.7s infinite;
 }
-div.plan-cols, div.email-section {
+
+#imdone-atom-link img {
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 40px;
+}
+
+div.plan-cols, div.email-section, div.thanks-section {
     margin-left: 12.5%;
 }
 
-.email-section {
+.email-section, .thanks-section {
 
   p {
     line-height: 28px;

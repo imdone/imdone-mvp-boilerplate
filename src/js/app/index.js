@@ -30,9 +30,15 @@ $(function () {
 
   $('#email')
   .on('keyup', hideAlert)
-  .on('click', hideAlert);
+  .on('click', hideAlert)
+  .on('keyup', function(e) {
+    var code = e.which;
+    if(code==32||code==13||code==188||code==186){
+        $('#email-reminder').click();
+    }
+  });
 
-  $('#reminder').click(function(evt) {
+  $('#email-reminder').click(function(evt) {
     hideAlert();
     var email = $('#email').val();
     if (email) {
@@ -40,7 +46,7 @@ $(function () {
     }
 
     var cb = function(err, resp) {
-      window.location = "https://atom.io/packages/imdone-atom";
+      window.location = "/thanks";
     };
 
     if (email !== "") {
