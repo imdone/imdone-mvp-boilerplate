@@ -1,6 +1,6 @@
 {
   "title": "imdone.io",
-  "logoImage": "images/imdone-logo.svg",
-  "favIcon": "images/favicon.ico",
+  "logoImage": "/images/imdone-logo.svg",
+  "favIcon": "/images/favicon.ico",
   "buttonText": "Plans and Pricing"
 }

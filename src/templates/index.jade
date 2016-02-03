@@ -1,22 +1,9 @@
 doctype html
 html(lang="en")
-  head
-    meta(charset="utf-8")
-    meta(http-equiv="X-UA-Compatible", content="IE=edge")
-    meta(name="viewport", content="width=device-width, initial-scale=1")
-    meta(name="description", content="#{title}")
-    meta(name="author", content="Farwell Project Advisors")
-    title #{title}
-    link(rel="shortcut icon", href="#favIcon")
-    // inject:css
-    // endinject
+  include ./includes/head.jade
   body
     #main.container
-      h1 
-        img(src="#{logoImage}")
-        span.name imdone 
-        span is a task-board that lives in your 
-        span.typed work
+      include ./includes/title.jade
       .what.pull-left
         .clearfix
         .item
@@ -46,7 +33,7 @@ html(lang="en")
           img#arrow(src="images/arrow.png")
 
       p.clearfix
-        a.btn.btn-success.btn-large(href="#", role="button", id="call-to-action", title="Plans and Pricing")
+        a.btn.btn-success.btn-large(href="pricing", role="button", id="call-to-action", title="Plans and Pricing")
           =buttonText
     // inject:js
     // endinject

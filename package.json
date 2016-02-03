@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "MVP boilerplate using gulp, sass, bootstrap, bootswatch, font-awesome and browserify",
   "main": "gulpfile.js",
-  "dependencies": {},
+  "dependencies": {
+    "node-static": "^0.7.7"
+  },
   "devDependencies": {
     "bootstrap-sass": "^3.3.6",
     "bootswatch": "^3.3.6",

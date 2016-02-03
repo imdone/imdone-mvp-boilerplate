@@ -13,12 +13,12 @@ var data        = require('gulp-data'),
     buffer      = require('vinyl-buffer'),
     sourcemaps  = require('gulp-sourcemaps'),
     ghPages     = require('gulp-gh-pages'),
+    fs          = require('fs'),
     reload      = require('require-reload')(require);
 
 var src = 'src',
     dist = 'dist',
     js = path.join(src, 'js'),
-    templates = path.join(src,'templates'),
     NODE_ENV = "development";
 
 gulp.task('clean', function () {
@@ -27,12 +27,14 @@ gulp.task('clean', function () {
 });
 
 gulp.task('html', ['resources'], function() {
-  return gulp.src(path.join(templates,'*.jade'))
+  var addRootSlash = reload('./.config').all.addRootSlash;
+  return gulp.src(['src/templates/**/*.jade', '!src/templates/includes/**/*'])
     .pipe(data(function(file) {
-      return require(file.base + path.basename(file.path, '.jade') + '.json');
+      var filePath = file.base + path.basename(file.path, '.jade') + '.json';
+      return fs.existsSync(filePath) ? require(filePath) : {};
     }))
     .pipe(jade({pretty: true}))
-    .pipe(inject(gulp.src(['css/**/*','js/**/*'], {read: false, cwd: dist}), {addRootSlash: false}))
+    .pipe(inject(gulp.src(['css/**/*','js/**/*'], {read: false, cwd: dist}), {addRootSlash: addRootSlash}))
     .pipe(gulp.dest(dist));
 });
 
