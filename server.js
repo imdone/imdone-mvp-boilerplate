@@ -1,10 +1,14 @@
-var static = require('node-static');
+var static = require('node-static'),
+    config = require('./.config.js');
 
 var fileServer = new static.Server('./dist');
 
-require('http').createServer(function (request, response) {
+var server = require('http').createServer(function (request, response) {
     request.addListener('end', function () {
         console.log(request.url);
         fileServer.serve(request, response);
     }).resume();
-}).listen(8080);
+}).listen(config.all.port || 8080, function() {
+  var host = server.address();
+  console.log('Listening at %s:%d', host.address, host.port);
+});
