@@ -163,8 +163,9 @@ div.plan-panel {
 
   &:hover {
     -webkit-transform: scale(1.15);
-    -moz-transform: scale(1.15);
-    -webkit-box-shadow:0 0 5px #000;
+    -ms-transform: scale(1.15);
+    transform: scale(1.15);
+    box-shadow:0 0 5px #000;
   }
 
   h2 {

@@ -18,8 +18,17 @@ var data        = require('gulp-data'),
 
 var src = 'src',
     dist = 'dist',
+    configPath = './.config.js',
     js = path.join(src, 'js'),
     NODE_ENV = "development";
+
+var getConfig = function() {
+  var config = {};
+  if (fs.existsSync(configPath)) {
+    config = reload(configPath).all || {};
+  }
+  return config;
+};
 
 gulp.task('clean', function () {
 	return gulp.src(dist, {read: false})
@@ -27,11 +36,11 @@ gulp.task('clean', function () {
 });
 
 gulp.task('html', ['resources'], function() {
-  var addRootSlash = reload('./.config').all.addRootSlash;
+  var addRootSlash = getConfig().addRootSlash || true;
   return gulp.src(['src/templates/**/*.jade', '!src/templates/includes/**/*'])
     .pipe(data(function(file) {
       var filePath = file.base + path.basename(file.path, '.jade') + '.json';
-      return fs.existsSync(filePath) ? require(filePath) : {};
+      return fs.existsSync(filePath) ? reload(filePath) : {};
     }))
     .pipe(jade({pretty: true}))
     .pipe(inject(gulp.src(['css/**/*','js/**/*'], {read: false, cwd: dist}), {addRootSlash: addRootSlash}))
@@ -39,7 +48,7 @@ gulp.task('html', ['resources'], function() {
 });
 
 gulp.task('styles', function(){
-  var theme = reload('./.config').all.theme;
+  var theme = getConfig().theme || 'cosmo';
   var opts = {
     outputStyle: 'nested',
     precison: 3,
@@ -97,7 +106,7 @@ gulp.task('deploy', function() {
 gulp.task('resources', ['styles', 'fonts', 'js', 'images']);
 
 gulp.task('default', function(cb) {
-  runSequence('clean', ['html', 'watch'], 'serve', cb)
+  runSequence('clean', 'html', 'watch', 'serve', cb)
 });
 
 gulp.task('dist', function(cb) {

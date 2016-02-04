@@ -8,6 +8,8 @@ MVP boilerplate using gulp, sass, bootstrap, bootswatch, font-awesome and browse
 - [gulp/browserify-uglify-sourcemap.md at master · gulpjs/gulp](https://github.com/gulpjs/gulp/blob/master/docs/recipes/browserify-uglify-sourcemap.md)
 - <https://web.archive.org/web/20110511183447/http://bufferapp.com/pricing>
 - [How To Create 15 Different CSS3 Transition Effects](http://blog.crazyegg.com/2012/04/23/css3-transition-effects/)
+- [Home of free code snippets for Bootstrap | Bootsnipp.com](http://bootsnipp.com/)
+- [Pleeease Play · Prefix CSS3, convert rem, CSS filters, pleeease.NEXT](http://pleeease.io/play/)
 
 Config
 ----
