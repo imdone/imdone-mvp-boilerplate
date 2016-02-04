@@ -102,5 +102,5 @@ gulp.task('default', function(cb) {
 
 gulp.task('dist', function(cb) {
   NODE_ENV = 'production';
-  runSequence('clean', 'default', cb);
+  runSequence('clean', 'html', cb);
 });
