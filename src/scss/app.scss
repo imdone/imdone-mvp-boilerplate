@@ -15,6 +15,12 @@ body {
   margin: 0;
   padding-bottom: 6rem;
   min-height: 100%;
+  .title-link {
+    color: #333;
+    &:hover {
+      color: #333;
+    }
+  }
 }
 
 footer {
@@ -59,8 +65,11 @@ code {
 }
 
 #call-to-action {
-  margin-top: 6em;
-  margin-left: 6em;
+  margin-top: 16em;
+  margin-left: 52em;
+}
+
+.call-to-action-btn {
   font-size: 1.5em;
   font-weight: bold;
 }
@@ -82,7 +91,7 @@ code {
     }
 
     .sub {
-      margin-top: -.5em;
+      margin-top: -.25em;
       font-size: .75em;
       opacity: .5;
     }

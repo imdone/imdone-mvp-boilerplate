@@ -23,9 +23,11 @@
     .badge.pull-left 4
     .statement.pull-left
       span Share your tasks!
+      .sub And run rules when they change.
       .sub With google calendar, github, slack, trello and more.
     img#arrow(src="images/arrow.png")
 
-p.clearfix
-  a.btn.btn-success.btn-large(href="pricing", role="button", id="call-to-action", title="Plans and Pricing")
+p#call-to-action.clearfix
+  a.btn.btn-success.btn-large.call-to-action-btn(href="pricing", role="button", title="Plans and Pricing")
     =buttonText
+    
